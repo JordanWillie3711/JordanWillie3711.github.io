@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+  <html>
   <head>
     <meta charset="utf-8" />
     <title>Bouncing Box</title>
@@ -43,21 +43,29 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
-
+        var positionX = 0;
+        var points = 0;
+        var speed = 10;
+        var positionY = 0;
+        var speedY = 10;
+        var boardHeight = jQuery(window).height();
+        var randomNum = Math.random() * 100
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
           boardWidth = board.width();
         });
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 1);
+        setInterval(update, 50);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
 
         // moves the Box to a new position on the screen along the X-Axis
-        function moveBoxTo(newPositionX) {
+        function moveBoxTo(newPositionX, newPositionY) {
           box.css("left", newPositionX);
+          box.css("top", newPositionY);
+          
         }
 
         // changes the text displayed on the Box
@@ -70,26 +78,29 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-        var positionX = 0;
-        var points = 0;
-        var speed = 10;
-
-
+        
+       
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-          moveBoxTo(positionX);
+          moveBoxTo(positionX, positionY);
         positionX = positionX + speed;
+        positionY = positionY + speedY;
         if (positionX >= boardWidth - 50)
             speed = speed * -1;
         if(positionX < 0) 
         speed = speed * -1;
-
+        if(positionY >= boardHeight - 50){
+            speedY = speedY * -1;    
         }
-  
+        if(positionY < 0){
+            speedY = speedY * -1;
+        }
+        }
+        
         /**
          * This Function will be called each time the box is clicked.
          * Each time it is called, it should perform each of the following actions:
@@ -99,9 +110,11 @@
          */
         function handleBoxClick() {
           positionX = 0;
+          positionY = 0;
           changeBoxText(points)
           points = points + 1
-          speed =  3 * points + 10;
+          speed =  5 * points + 10;
+          speedY = 5 * points + 10;
         }
 
 
@@ -109,4 +122,7 @@
       })();
     </script>
   </body>
-</html>
+  <h1>
+ <a href="https://www.youtube.com/watch?v=KB7YMyLFdJw"><marquee>🤯🤯🤯🙀🙀🙀🫢🫢🫢FREE CLASH ROYALE GEMS CLICK NOW TO REDEEM YOUR PRIZE!!!(only works if volume is all the way up)😁😁😁👍👍👍💎💎💎</marquee></a>
+  </h1>
+  </html>
